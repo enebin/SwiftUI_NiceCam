@@ -15,6 +15,8 @@
 		9B17A86D26FB3654009B7559 /* SwiftUI_JJaseCamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B17A86C26FB3654009B7559 /* SwiftUI_JJaseCamUITests.swift */; };
 		9B17A86F26FB3654009B7559 /* SwiftUI_JJaseCamUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B17A86E26FB3654009B7559 /* SwiftUI_JJaseCamUITestsLaunchTests.swift */; };
 		9B17A87C26FB3DD9009B7559 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B17A87B26FB3DD9009B7559 /* CameraView.swift */; };
+		9B4106F826FDDEF200647C4C /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4106F726FDDEF200647C4C /* CameraViewModel.swift */; };
+		9B4106FA26FDDEFB00647C4C /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4106F926FDDEFB00647C4C /* Camera.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		9B17A86C26FB3654009B7559 /* SwiftUI_JJaseCamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_JJaseCamUITests.swift; sourceTree = "<group>"; };
 		9B17A86E26FB3654009B7559 /* SwiftUI_JJaseCamUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_JJaseCamUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9B17A87B26FB3DD9009B7559 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		9B4106F726FDDEF200647C4C /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
+		9B4106F926FDDEFB00647C4C /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		9BC4188726FC5BEA003DB4D9 /* SwiftUI-JJaseCam-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SwiftUI-JJaseCam-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -97,9 +101,9 @@
 		9B17A85026FB3651009B7559 /* SwiftUI_JJaseCam */ = {
 			isa = PBXGroup;
 			children = (
+				9B4106F626FDDED900647C4C /* Camera */,
 				9B17A85126FB3651009B7559 /* SwiftUI_JJaseCamApp.swift */,
 				9B17A85326FB3651009B7559 /* ContentView.swift */,
-				9B17A87B26FB3DD9009B7559 /* CameraView.swift */,
 				9B17A85526FB3653009B7559 /* Assets.xcassets */,
 				9BC4188726FC5BEA003DB4D9 /* SwiftUI-JJaseCam-Info.plist */,
 				9B17A85726FB3653009B7559 /* Preview Content */,
@@ -130,6 +134,16 @@
 				9B17A86E26FB3654009B7559 /* SwiftUI_JJaseCamUITestsLaunchTests.swift */,
 			);
 			path = SwiftUI_JJaseCamUITests;
+			sourceTree = "<group>";
+		};
+		9B4106F626FDDED900647C4C /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				9B17A87B26FB3DD9009B7559 /* CameraView.swift */,
+				9B4106F726FDDEF200647C4C /* CameraViewModel.swift */,
+				9B4106F926FDDEFB00647C4C /* Camera.swift */,
+			);
+			path = Camera;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +277,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B17A87C26FB3DD9009B7559 /* CameraView.swift in Sources */,
+				9B4106FA26FDDEFB00647C4C /* Camera.swift in Sources */,
+				9B4106F826FDDEF200647C4C /* CameraViewModel.swift in Sources */,
 				9B17A85426FB3651009B7559 /* ContentView.swift in Sources */,
 				9B17A85226FB3651009B7559 /* SwiftUI_JJaseCamApp.swift in Sources */,
 			);
