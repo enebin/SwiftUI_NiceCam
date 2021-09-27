@@ -21,18 +21,18 @@ struct CameraView: View {
             VStack {
                 HStack {
                     // 셔터사운드 온오프
-                    Button(action: {viewModel.switchFlash()}) {
-                        Image(systemName: viewModel.isFlashOn ?
+                    Button(action: {viewModel.switchSilent()}) {
+                        Image(systemName: viewModel.isSilentModeOn ?
                               "speaker.fill" : "speaker")
-                            .foregroundColor(viewModel.isFlashOn ? .yellow : .white)
+                            .foregroundColor(viewModel.isSilentModeOn ? .yellow : .white)
                     }
                     .padding(.horizontal, 30)
                     
                     // 플래시 온오프
-                    Button(action: {viewModel.switchSilent()}) {
-                        Image(systemName: viewModel.isSilentModeOn ?
+                    Button(action: {viewModel.switchFlash()}) {
+                        Image(systemName: viewModel.isFlashOn ?
                               "bolt.fill" : "bolt")
-                            .foregroundColor(viewModel.isSilentModeOn ? .yellow : .white)
+                            .foregroundColor(viewModel.isFlashOn ? .yellow : .white)
                     }
                     .padding(.horizontal, 30)
                 }
@@ -86,6 +86,7 @@ struct CameraView: View {
             }
             .foregroundColor(.white)
         }
+        .opacity(viewModel.shutterEffect ? 0 : 1)
     }
 }
 
