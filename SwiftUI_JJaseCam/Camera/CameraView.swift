@@ -10,13 +10,22 @@ import AVFoundation
 
 struct CameraView: View {
     @ObservedObject var viewModel = CameraViewModel()
-
+    
     var body: some View {
         ZStack {
             viewModel.cameraPreview.ignoresSafeArea()
                 .onAppear {
                     viewModel.configure()
                 }
+            // ✅ 추가: 줌 기능
+                .gesture(MagnificationGesture()
+                            .onChanged { val in
+                    viewModel.zoom(factor: val)
+                }
+                            .onEnded { _ in
+                    viewModel.zoomInitialize()
+                }
+                )
             
             VStack {
                 HStack {
@@ -94,7 +103,7 @@ struct CameraView: View {
 struct CameraPreviewView: UIViewRepresentable {
     class VideoPreviewView: UIView {
         override class var layerClass: AnyClass {
-             AVCaptureVideoPreviewLayer.self
+            AVCaptureVideoPreviewLayer.self
         }
         
         var videoPreviewLayer: AVCaptureVideoPreviewLayer {
@@ -103,7 +112,7 @@ struct CameraPreviewView: UIViewRepresentable {
     }
     
     let session: AVCaptureSession
-   
+    
     func makeUIView(context: Context) -> VideoPreviewView {
         let view = VideoPreviewView()
         
@@ -112,7 +121,7 @@ struct CameraPreviewView: UIViewRepresentable {
         view.videoPreviewLayer.videoGravity = .resizeAspectFill
         view.videoPreviewLayer.cornerRadius = 0
         view.videoPreviewLayer.connection?.videoOrientation = .portrait
-
+        
         return view
     }
     

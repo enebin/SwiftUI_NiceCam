@@ -17,6 +17,10 @@ class CameraViewModel: ObservableObject {
     
     let cameraPreview: AnyView
     let hapticImpact = UIImpactFeedbackGenerator()
+    
+    // ✅ 추가: 줌 기능
+    var currentZoomFactor: CGFloat = 1.0
+    var lastScale: CGFloat = 1.0
 
     @Published var shutterEffect = false
     @Published var recentImage: UIImage?
@@ -60,8 +64,23 @@ class CameraViewModel: ObservableObject {
         }
     }
     
+    func zoom(factor: CGFloat) {
+        let delta = factor / lastScale
+        lastScale = factor
+        
+        let newScale = min(max(currentZoomFactor * delta, 1), 5)
+        model.zoom(newScale)
+        currentZoomFactor = newScale
+    }
+    
+    func zoomInitialize() {
+        lastScale = 1.0
+    }
+    
     // 전후면 카메라 스위칭
     func changeCamera() {
+        // ✅ 추가
+        model.changeCamera()
         print("[CameraViewModel]: Camera changed!")
     }
     
