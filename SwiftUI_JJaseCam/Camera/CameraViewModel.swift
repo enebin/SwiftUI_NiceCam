@@ -1,10 +1,3 @@
-//
-//  CameraViewModel.swift
-//  SwiftUI_JJaseCam
-//
-//  Created by 이영빈 on 2021/09/24.
-//
-
 import SwiftUI
 import AVFoundation
 import Combine
@@ -18,10 +11,10 @@ class CameraViewModel: ObservableObject {
     let cameraPreview: AnyView
     let hapticImpact = UIImpactFeedbackGenerator()
     
-    // ✅ 추가: 줌 기능
     var currentZoomFactor: CGFloat = 1.0
     var lastScale: CGFloat = 1.0
 
+    @Published var showPreview = false
     @Published var shutterEffect = false
     @Published var recentImage: UIImage?
     @Published var isFlashOn = false
@@ -79,7 +72,6 @@ class CameraViewModel: ObservableObject {
     
     // 전후면 카메라 스위칭
     func changeCamera() {
-        // ✅ 추가
         model.changeCamera()
         print("[CameraViewModel]: Camera changed!")
     }

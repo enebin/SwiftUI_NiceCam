@@ -1,10 +1,3 @@
-//
-//  CameraView.swift
-//  SwiftUI_JJaseCam
-//
-//  Created by 이영빈 on 2021/09/22.
-//
-
 import SwiftUI
 import AVFoundation
 
@@ -17,7 +10,6 @@ struct CameraView: View {
                 .onAppear {
                     viewModel.configure()
                 }
-            // ✅ 추가: 줌 기능
                 .gesture(MagnificationGesture()
                             .onChanged { val in
                     viewModel.zoom(factor: val)
@@ -52,7 +44,7 @@ struct CameraView: View {
                 
                 HStack{
                     // 찍은 사진 미리보기
-                    Button(action: {}) {
+                    Button(action: {viewModel.showPreview = true}) {
                         if let previewImage = viewModel.recentImage {
                             Image(uiImage: previewImage)
                                 .resizable()
@@ -94,6 +86,17 @@ struct CameraView: View {
                 }
             }
             .foregroundColor(.white)
+        }
+        .fullScreenCover(isPresented: $viewModel.showPreview) {
+            Image(uiImage: viewModel.recentImage ?? UIImage())
+                .resizable()
+                .scaledToFit()
+                .frame(width: UIScreen.main.bounds.width,
+                       height: UIScreen.main.bounds.height)
+                .ignoresSafeArea()
+                .onTapGesture {
+                    viewModel.showPreview = false
+                }
         }
         .opacity(viewModel.shutterEffect ? 0 : 1)
     }
